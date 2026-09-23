@@ -12,10 +12,10 @@ public class PenyaluranService {
     private ArrayList<Penyaluran> dataPenyaluran = new ArrayList<>();
 
     public PenyaluranService() {
-        dataPenyaluran.add(new Penyaluran(1, 1, 1, "Penyaluran ke Rumah Singgah", "2026-09-10", 20, "Budi Santoso"));
-        dataPenyaluran.add(new Penyaluran(2, 2, 2, "Penyaluran ke Panti Asuhan", "2026-09-11", 15, "Siti Rahma"));
-        dataPenyaluran.add(new Penyaluran(3, 3, 3, "Penyaluran ke Panti Asuhan", "2026-09-12", 10, "Andi Wijaya"));
-        dataPenyaluran.add(new Penyaluran(4, 4, 4, "Pembagian Makanan untuk Warga", "2026-09-12", 10, "Andi Wijaya"));
+        dataPenyaluran.add(new Penyaluran(1, 1, 1, "Penyaluran ke Rumah Singgah", "10-09-2026", 20, "Petugas Komunitas"));
+        dataPenyaluran.add(new Penyaluran(2, 2, 2, "Penyaluran ke Panti Asuhan", "01-09-2026", 15, "Petugas Komunitas"));
+        dataPenyaluran.add(new Penyaluran(3, 3, 3, "Penyaluran ke Panti Asuhan", "10-07-2026", 10, "Petugas Komunitas"));
+        dataPenyaluran.add(new Penyaluran(4, 4, 4, "Pembagian Makanan untuk Warga", "11-11-2026", 10, "Relawan"));
     }
 
     public void tableData() {
