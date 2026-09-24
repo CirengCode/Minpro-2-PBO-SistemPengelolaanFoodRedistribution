@@ -4,7 +4,7 @@ Nama: Regina Jelita Ningsih
 <br> Kelas: B (2025)
 
 ## 🍽️ Deskripsi Singkat Program
-Masalah **surplus makanan** sering terjadi di hotel, restoran, usaha kuliner, dan juga dalam acara pribadi seperti syukuran. Sementara itu, masih banyak individu dan lembaga sosial seperti panti asuhan atau rumah singgah yang membutuhkan makanan. Program **Sistem Pengelolaan Food Redistribution** dibuat untuk menghubungkan kedua pihak dengan sistem pencatatan yang sederhana dan terstruktur.
+Masalah **surplus makanan** sering terjadi di hotel, restoran, usaha kuliner, dan juga dalam acara pribadi seperti syukuran. Sementara itu, masih banyak individu dan lembaga sosial seperti panti asuhan atau rumah singgah yang membutuhkan makanan. Program **Sistem Pengelolaan Food Redistribution** dibuat agar pihak terkait dalam melakukan pencatatan yang sederhana dan terstruktur.
 
 Sistem ini mengelola empat entitas utama yang saling berkaitan:
 1. **Donatur** adalah pihak yang memberikan donasi makanan. Donatur terbagi menjadi dua jenis:
