@@ -119,6 +119,7 @@ Pada contoh tersebut, getIdDonatur() dan getNamaDonatur() digunakan untuk membac
 
 Konsep yang sama juga diterapkan pada class `Penerima`, `Donasi`, dan `Penyaluran`, termasuk atribut tambahan di setiap subclass. Misalnya, `jenisKegiatan` pada `DonaturIndividu`, `namaInstans` dan `jenisInstansi` pada `DonaturInstansi`, `deskripsiPenerima` pada `PenerimaIndividu`, serta `namaLembaga`, `jenisLembaga`, dan `namaPengelola` pada `PenerimaLembaga`.
 
+
 ## ⭐ Inheritance
 ### Donatur (Superclass)
 Kelas `Donatur` adalah kelas dasar yang menyimpan atribut dan perilaku umum yang dimiliki semua jenis donatur, yaitu `idDonatur` dan `namaDonatur`. Kelas ini juga punya method `getJenisDonatur()` yang akan di-*override* oleh kelas turunannya.
@@ -314,7 +315,7 @@ public class PenerimaLembaga extends Penerima {
 }
 ```
 
-## 🔁 Polymorphism
+## 👾 Polymorphism
 Program ini menggunakan **polymorphism** dengan cara menerapkan **overriding**. Implementasinya terlihat pada method `getJenisDonatur()` awalnya dibuat di superclass `Donatur`, lalu diubah sesuai kebutuhan di `DonaturIndividu` dan `DonaturInstansi`.
 
 Pada superclass `Donatur`, method tersebut memiliki nilai awal:
@@ -386,9 +387,8 @@ Dengan validasi ini, jika ada kesalahan input, pengguna akan diminta untuk mengu
 <br><img width="342" height="786" alt="image" src="https://github.com/user-attachments/assets/d6fa0ddc-c2cd-40cb-aa3b-1b0a7ae546be" />
 <br> <img width="342" height="640" alt="image" src="https://github.com/user-attachments/assets/54df4850-536e-41a7-a92e-8042f1298d8f" />
 
----
 
-## 🥗 Alur Program
+## 🍱 Alur Program
 Berikut ini adalah alur program secara garis besar:
 
 **1. Tampilan Menu Utama**
