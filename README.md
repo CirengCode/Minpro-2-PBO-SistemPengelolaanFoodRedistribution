@@ -360,7 +360,7 @@ Dengan cara ini, _method_ yang sama dapat menghasilkan nilai berbeda sesuai deng
         }
 ...
 ```
-Jika objek yang digunakan adalah `DonaturIndivid`u, maka program menjalankan `getJenisDonatur()` milik `DonaturIndividu`. Jika objeknya `DonaturInstansi`, maka yang dijalankan adalah milik `DonaturInstansi`.
+Jika objek yang digunakan adalah `DonaturIndividu`, maka program menjalankan `getJenisDonatur()` milik `DonaturIndividu`. Jika objeknya `DonaturInstansi`, maka yang dijalankan adalah milik `DonaturInstansi`.
 
 Konsep yang sama juga diterapkan pada `getJenisPenerima()` pada kelas `Penerima`, `PenerimaIndividu`, dan `PenerimaLembaga`.
 
