@@ -440,7 +440,7 @@ Berikut ini adalah alur program secara garis besar:
 <br> Untuk Penerima Individu, ada tambahan “Deskripsi Penerima”. Untuk Penerima Lembaga, ada “Nama Lembaga”, “Jenis Lembaga”, dan “Nama Pengelola”. Perbedaan ini berasal dari jenis objek yang disimpan di `ArrayList<Penerima>`.
 <br> Admin bisa menambah, memperbarui, menghapus, dan melihat data penerima. Petugas hanya bisa melihat data penerima yang sudah ada.
 
-<img width="377" height="717" alt="image" src="https://github.com/user-attachments/assets/511f71f4-2d38-48db-a25b-cecaa9e4ce6a" />
+<img width="485" height="787" alt="image" src="https://github.com/user-attachments/assets/6d73eb5a-1447-4874-8eaa-a9895a663a7d" />
 
 
 <br> **8. Menu Data Penyaluran**
