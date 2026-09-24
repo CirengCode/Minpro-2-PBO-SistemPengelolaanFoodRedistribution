@@ -11,7 +11,7 @@ import model.PenerimaLembaga;
 import util.InputUtil;
 
 public class PenerimaService {
-        private ArrayList<Penerima> dataPenerima = new ArrayList<>();
+        private final ArrayList<Penerima> dataPenerima = new ArrayList<>();
 
     public PenerimaService() {
         dataPenerima.add(new PenerimaLembaga(1, "Rumah Singgah Harapan", "Rumah Singgah", "Putri Ayu"));
@@ -244,7 +244,7 @@ public class PenerimaService {
         InputUtil.tekanEnter(scanner);
     }
 
-    private Penerima cariPenerima(int idPenerima) {
+    public Penerima cariPenerima(int idPenerima) {
         for (Penerima p : dataPenerima) {
             if (p.getIdPenerima() == idPenerima) {
                 return p;

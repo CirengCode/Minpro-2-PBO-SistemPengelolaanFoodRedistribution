@@ -5,7 +5,7 @@
 package model;
 
 public class Penyaluran {
-    private int idPenyaluran;
+    private final int  idPenyaluran;
     private int idDonasi;
     private int idPenerima;
     private String namaKegiatan;
@@ -33,10 +33,6 @@ public class Penyaluran {
 
     public int getIdPenyaluran() {
         return idPenyaluran;
-    }
-
-    public void setIdPenyaluran(int idPenyaluran) {
-        this.idPenyaluran = idPenyaluran;
     }
 
     public int getIdDonasi() {

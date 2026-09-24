@@ -9,9 +9,12 @@ import model.Donasi;
 import util.InputUtil;
 
 public class DonasiService {
-    private ArrayList<Donasi> dataDonasi = new ArrayList<>();
+    private final ArrayList<Donasi> dataDonasi = new ArrayList<>();
+    private final DonaturService donaturService;
 
-    public DonasiService() {
+    public DonasiService(DonaturService donaturService) {
+        this.donaturService = donaturService;
+        
         dataDonasi.add(new Donasi(1, 1, "Muffin", 20, "Layak"));
         dataDonasi.add(new Donasi(2, 2, "Sapi Lada Hitam", 15, "Layak"));
         dataDonasi.add(new Donasi(3, 3, "Ayam Bistik", 10, "Layak"));
@@ -68,6 +71,7 @@ public class DonasiService {
 
     private void tambahDonasi(Scanner scanner) {
         int idDonasi = InputUtil.bacaInt(scanner, "ID Donasi: ");
+        
 
         if (cariDonasi(idDonasi) != null) {
             System.out.println("------------------------------------");
@@ -76,10 +80,25 @@ public class DonasiService {
             InputUtil.tekanEnter(scanner);
             return;
         }
+        
+        int idDonatur;
+        while (true) {
+            idDonatur = InputUtil.bacaInt(scanner, "ID Donatur: ");
 
-        int idDonatur = InputUtil.bacaInt(scanner, "ID Donatur: ");
+            if (donaturService.cariDonatur(idDonatur) != null) {
+                break;
+            }
+
+            System.out.println("----------------------------------------");
+            System.out.println("[      ID Donatur tidak ada -__-!      ]");
+            System.out.println("[Silakan masukkan ID Donatur yang valid]");
+            System.out.println("----------------------------------------");
+        }
+        
         String namaMakanan = InputUtil.bacaString(scanner, "Nama Makanan: ");
+        
         int jumlahPorsi = InputUtil.bacaInt(scanner, "Jumlah Porsi: ");
+        
         String statusKelayakan = InputUtil.bacaString(scanner, "Status Kelayakan: ");
 
         dataDonasi.add(new Donasi(
@@ -122,10 +141,25 @@ public class DonasiService {
         String konfirmasi = scanner.nextLine();
 
         if (konfirmasi.equalsIgnoreCase("y")) {
+            
+            int idDonatur;
+            while (true) {
+                idDonatur = InputUtil.bacaInt(scanner, "ID Donatur: ");
 
-            int idDonatur = InputUtil.bacaInt(scanner, "ID Donatur: ");
+                if (donaturService.cariDonatur(idDonatur) != null) {
+                    break;
+                }
+
+                System.out.println("----------------------------------------");
+                System.out.println("[      ID Donatur tidak ada -__-!      ]");
+                System.out.println("[Silakan masukkan ID Donatur yang valid]");
+                System.out.println("----------------------------------------");
+            }
+            
             String namaMakanan = InputUtil.bacaString(scanner, "Nama Makanan: ");
+            
             int jumlahPorsi = InputUtil.bacaInt(scanner, "Jumlah Porsi: ");
+            
             String statusKelayakan = InputUtil.bacaString(scanner, "Status Kelayakan: ");
 
             donasi.setIdDonatur(idDonatur);
@@ -191,7 +225,7 @@ public class DonasiService {
         InputUtil.tekanEnter(scanner);
     }
 
-    private Donasi cariDonasi(int idDonasi) {
+    public Donasi cariDonasi(int idDonasi) {
         for (Donasi d : dataDonasi) {
             if (d.getIdDonasi() == idDonasi) {
                 return d;

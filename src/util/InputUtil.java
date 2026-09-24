@@ -3,16 +3,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package util;
-import java.util.InputMismatchException;
+
 import java.util.Scanner;
 
 public class InputUtil {
+    
     public static int bacaInt(Scanner scanner, String pesan) {
         while (true) {
+            System.out.print(pesan);
+            String input = scanner.nextLine();
+
+            if (input.trim().isEmpty()) {
+                System.out.println("------------------------------------");
+                System.out.println("[Data tidak boleh kosong -__-!]");
+                System.out.println("------------------------------------");
+                continue;
+            }
+
             try {
-                System.out.print(pesan);
-                int nilai = scanner.nextInt();
-                scanner.nextLine();
+                int nilai = Integer.parseInt(input);
 
                 if (nilai <= 0) {
                     System.out.println("------------------------------------");
@@ -22,12 +31,10 @@ public class InputUtil {
                 }
 
                 return nilai;
-
-            } catch (InputMismatchException e) {
+            } catch (NumberFormatException e) {
                 System.out.println("------------------------------------");
                 System.out.println("[Input harus berupa angka -__-!]");
                 System.out.println("------------------------------------");
-                scanner.nextLine();
             }
         }
     }
@@ -42,7 +49,7 @@ public class InputUtil {
             }
 
             System.out.println("------------------------------------");
-            System.out.println("[Input tidak boleh kosong -__-!]");
+            System.out.println("[Data tidak boleh kosong -__-!]");
             System.out.println("------------------------------------");
         }
     }

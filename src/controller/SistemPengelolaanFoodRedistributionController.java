@@ -18,9 +18,9 @@ public class SistemPengelolaanFoodRedistributionController {
 
     public SistemPengelolaanFoodRedistributionController() {
         donaturService = new DonaturService();
-        donasiService = new DonasiService();
+        donasiService = new DonasiService(donaturService);
         penerimaService = new PenerimaService();
-        penyaluranService = new PenyaluranService();
+        penyaluranService = new PenyaluranService(donasiService, penerimaService);
     }
 
     public void mulai(Scanner scanner) {
@@ -34,15 +34,11 @@ public class SistemPengelolaanFoodRedistributionController {
 
             switch (pilihan) {
 
-                case 1 -> donaturService.dataDonatur(scanner);
+                case 1 -> menuAdmin(scanner);
 
-                case 2 -> donasiService.dataDonasi(scanner);
+                case 2 -> menuPetugas(scanner);
 
-                case 3 -> penerimaService.dataPenerima(scanner);
-
-                case 4 -> penyaluranService.dataPenyaluran(scanner);
-
-                case 5 -> {
+                case 3 -> {
                     System.out.println("------------------------------------");
                     System.out.println("[Terima kasih sudah menggunakan");
                     System.out.println(" Food Redistribution System ^^]");
@@ -59,15 +55,99 @@ public class SistemPengelolaanFoodRedistributionController {
             }
         }
     }
-
+    
     private void tampilkanMenu() {
         System.out.println("========================================");
-        System.out.println("       FOOD REDISTRIBUTION SYSTEM");
+        System.out.println("       ⋆⭒˚.⋆ SELAMAT DATANG DI ⋆⭒˚.⋆     ");
+        System.out.println("        FOOD REDISTRIBUTION SYSTEM      ");
         System.out.println("========================================");
-        System.out.println("[1] Donatur");
-        System.out.println("[2] Donasi");
-        System.out.println("[3] Penerima");
-        System.out.println("[4] Penyaluran");
-        System.out.println("[5] Keluar");
+        System.out.println("[1] Admin");
+        System.out.println("[2] Petugas");
+        System.out.println("[3] Keluar");
     }
+    
+    private void menuAdmin(Scanner scanner) {
+        boolean berjalanAdmin = true;
+
+        while (berjalanAdmin) {
+
+            System.out.println();
+            System.out.println("========================================");
+            System.out.println("               MENU ADMIN               ");
+            System.out.println("========================================");
+            System.out.println("[1] Donatur");
+            System.out.println("[2] Donasi");
+            System.out.println("[3] Penerima");
+            System.out.println("[4] Penyaluran");
+            System.out.println("[5] Kembali");
+
+            int pilihanAdmin = InputUtil.bacaInt(scanner, ">> ");
+
+            switch (pilihanAdmin) {
+
+                case 1 -> donaturService.dataDonatur(scanner);
+
+                case 2 -> donasiService.dataDonasi(scanner);
+
+                case 3 -> penerimaService.dataPenerima(scanner);
+
+                case 4 -> penyaluranService.dataPenyaluran(scanner);
+
+                case 5 -> berjalanAdmin = false;
+
+                default -> {
+                    System.out.println("------------------------------------");
+                    System.out.println("Mohon maaf, pilihan tidak valid! T-T");
+                    System.out.println("------------------------------------");
+                    InputUtil.tekanEnter(scanner);
+                }
+            }
+        }
+    }
+    
+    private void menuPetugas(Scanner scanner) {
+        boolean berjalanPetugas = true;
+
+        while (berjalanPetugas) {
+
+            System.out.println();
+            System.out.println("========================================");
+            System.out.println("              MENU PETUGAS              ");
+            System.out.println("========================================");
+            System.out.println("[1] Lihat Data Donasi");
+            System.out.println("[2] Lihat Data Penerima");
+            System.out.println("[3] Lihat Data Penyaluran");
+            System.out.println("[4] Kembali");
+
+            int pilihanPetugas = InputUtil.bacaInt(scanner, ">> ");
+
+            switch (pilihanPetugas) {
+
+                case 1 -> {
+                    donasiService.tableData();
+                    InputUtil.tekanEnter(scanner);
+                }
+
+                case 2 -> {
+                    penerimaService.tableData();
+                    InputUtil.tekanEnter(scanner);
+                }
+
+                case 3 -> {
+                    penyaluranService.tableData();
+                    InputUtil.tekanEnter(scanner);
+                }
+
+                case 4 -> berjalanPetugas = false;
+
+                default -> {
+                    System.out.println("------------------------------------");
+                    System.out.println("Mohon maaf, pilihan tidak valid! T-T");
+                    System.out.println("------------------------------------");
+                    InputUtil.tekanEnter(scanner);
+                }
+            }
+        }
+    }
+
 }

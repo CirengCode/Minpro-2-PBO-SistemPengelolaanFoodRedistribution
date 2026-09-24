@@ -5,7 +5,7 @@
 package model;
 
 public class Penerima {
-    private int idPenerima;
+    private final int idPenerima;
 
     public Penerima(int idPenerima) {
         this.idPenerima = idPenerima;
@@ -13,10 +13,6 @@ public class Penerima {
 
     public int getIdPenerima() {
         return idPenerima;
-    }
-
-    public void setIdPenerima(int idPenerima) {
-        this.idPenerima = idPenerima;
     }
 
     public String getJenisPenerima() {

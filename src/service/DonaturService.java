@@ -12,7 +12,7 @@ import model.DonaturInstansi;
 import util.InputUtil;
 
 public class DonaturService {
-    private ArrayList<Donatur> dataDonatur = new ArrayList<>();
+    private final ArrayList<Donatur> dataDonatur = new ArrayList<>();
 
     public DonaturService() {
         dataDonatur.add(new DonaturInstansi(1, "Budi Santoso", "Hotel Sejahtera", "Hotel"));
@@ -246,7 +246,7 @@ public class DonaturService {
         InputUtil.tekanEnter(scanner);
     }
 
-    private Donatur cariDonatur(int idDonatur) {
+    public Donatur cariDonatur(int idDonatur) {
         for (Donatur d : dataDonatur) {
             if (d.getIdDonatur() == idDonatur) {
                 return d;

@@ -9,9 +9,14 @@ import model.Penyaluran;
 import util.InputUtil;
 
 public class PenyaluranService {
-    private ArrayList<Penyaluran> dataPenyaluran = new ArrayList<>();
+    private final ArrayList<Penyaluran> dataPenyaluran = new ArrayList<>();
+    private final DonasiService donasiService;
+    private final PenerimaService penerimaService;
 
-    public PenyaluranService() {
+    public PenyaluranService(DonasiService donasiService, PenerimaService penerimaService) {
+        this.donasiService = donasiService;
+        this.penerimaService = penerimaService;
+        
         dataPenyaluran.add(new Penyaluran(1, 1, 1, "Penyaluran ke Rumah Singgah", "10-09-2026", 20, "Petugas Komunitas"));
         dataPenyaluran.add(new Penyaluran(2, 2, 2, "Penyaluran ke Panti Asuhan", "01-09-2026", 15, "Petugas Komunitas"));
         dataPenyaluran.add(new Penyaluran(3, 3, 3, "Penyaluran ke Panti Asuhan", "10-07-2026", 10, "Petugas Komunitas"));
@@ -78,9 +83,36 @@ public class PenyaluranService {
             InputUtil.tekanEnter(scanner);
             return;
         }
+        
+        int idDonasi;
+        while (true) {
+            idDonasi = InputUtil.bacaInt(scanner, "ID Donasi: ");
 
-        int idDonasi = InputUtil.bacaInt(scanner, "ID Donasi: ");
-        int idPenerima = InputUtil.bacaInt(scanner, "ID Penerima: ");
+            if (donasiService.cariDonasi(idDonasi) != null) {
+                break;
+            }
+
+            System.out.println("---------------------------------------");
+            System.out.println("[      ID Donasi tidak ada -__-!      ]");
+            System.out.println("[Silakan masukkan ID Donasi yang valid]");
+            System.out.println("---------------------------------------");
+        }
+
+        
+        int idPenerima;
+        while (true) {
+            idPenerima = InputUtil.bacaInt(scanner, "ID Penerima: ");
+
+            if (penerimaService.cariPenerima(idPenerima) != null) {
+                break;
+            }
+            
+            System.out.println("-------------------------------------------");
+            System.out.println("[       ID Penerima tidak ada -__-!        ]");
+            System.out.println("[  Silakan masukkan ID Penerima yang valid ]");
+            System.out.println("-------------------------------------------");
+        }
+        
         String namaKegiatan = InputUtil.bacaString(scanner, "Nama Kegiatan: ");
         String tanggalPenyaluran = InputUtil.bacaString(scanner, "Tanggal Penyaluran: ");
         int jumlahPorsi = InputUtil.bacaInt(scanner, "Jumlah Porsi: ");
@@ -131,8 +163,35 @@ public class PenyaluranService {
 
         if (konfirmasi.equalsIgnoreCase("y")) {
 
-            int idDonasi = InputUtil.bacaInt(scanner, "ID Donasi: ");
-            int idPenerima = InputUtil.bacaInt(scanner, "ID Penerima: ");
+            int idDonasi;
+            while (true) {
+                idDonasi = InputUtil.bacaInt(scanner, "ID Donasi: ");
+
+                if (donasiService.cariDonasi(idDonasi) != null) {
+                    break;
+                }
+
+                System.out.println("---------------------------------------");
+                System.out.println("[      ID Donasi tidak ada -__-!      ]");
+                System.out.println("[Silakan masukkan ID Donasi yang valid]");
+                System.out.println("---------------------------------------");
+            }
+            
+            
+            int idPenerima;
+            while (true) {
+                idPenerima = InputUtil.bacaInt(scanner, "ID Penerima: ");
+
+                if (penerimaService.cariPenerima(idPenerima) != null) {
+                    break;
+                }
+
+                System.out.println("-------------------------------------------");
+                System.out.println("[       ID Penerima tidak ada -__-!        ]");
+                System.out.println("[  Silakan masukkan ID Penerima yang valid ]");
+                System.out.println("-------------------------------------------");
+            }
+            
             String namaKegiatan = InputUtil.bacaString(scanner, "Nama Kegiatan: ");
             String tanggalPenyaluran = InputUtil.bacaString(scanner, "Tanggal Penyaluran: ");
             int jumlahPorsi = InputUtil.bacaInt(scanner, "Jumlah Porsi: ");

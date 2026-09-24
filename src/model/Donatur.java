@@ -5,7 +5,7 @@
 package model;
 
 public class Donatur {
-    private int idDonatur;
+    private final int idDonatur;
     private String namaDonatur;
 
     public Donatur(int idDonatur, String namaDonatur) {
@@ -15,10 +15,6 @@ public class Donatur {
 
     public int getIdDonatur() {
         return idDonatur;
-    }
-
-    public void setIdDonatur(int idDonatur) {
-        this.idDonatur = idDonatur;
     }
 
     public String getNamaDonatur() {

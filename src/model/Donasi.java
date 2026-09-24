@@ -5,7 +5,7 @@
 package model;
 
 public class Donasi {
-    private int idDonasi;
+    private final int idDonasi;
     private int idDonatur;
     private String namaMakanan;
     private int jumlahPorsi;
@@ -18,19 +18,15 @@ public class Donasi {
             int jumlahPorsi,
             String statusKelayakan) {
 
-        this.idDonasi = idDonasi;
-        this.idDonatur = idDonatur;
-        this.namaMakanan = namaMakanan;
-        this.jumlahPorsi = jumlahPorsi;
-        this.statusKelayakan = statusKelayakan;
+            this.idDonasi = idDonasi;
+            this.idDonatur = idDonatur;
+            this.namaMakanan = namaMakanan;
+            this.jumlahPorsi = jumlahPorsi;
+            this.statusKelayakan = statusKelayakan;
     }
 
     public int getIdDonasi() {
         return idDonasi;
-    }
-
-    public void setIdDonasi(int idDonasi) {
-        this.idDonasi = idDonasi;
     }
 
     public int getIdDonatur() {
