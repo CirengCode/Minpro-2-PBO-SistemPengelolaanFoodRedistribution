@@ -42,7 +42,7 @@ Program ini disusun dengan kosep **MVC (Model–View–Controller)** yang dimodi
 | `util` | Berisi fungsi bantu (*helper*), termasuk validasi input. | `InputValidator` |
 | `main` | Menjadi *Entry point* program yang menjalankan `Controller` pertama kali. | `Main.java` |
 
-Pada aplikasi console ini, bagian **View** tidak dibuat sebagai _package_ terpisah. Menu dan data ditampilkan dengan `System.out.println`, dan input pengguna dibaca dengan `Scanner`. Proses ini dijalankan bersama `Controller` dan `Service` sesuai kebutuhan program.
+Pada program bagian **View** tidak dibuat sebagai _package_ terpisah. Menu dan data ditampilkan dengan `System.out.println`, dan input pengguna dibaca dengan `Scanner`. Proses ini dijalankan bersama `Controller` dan `Service` sesuai kebutuhan program.
 
 Secara singkat, alur programnya adalah main ke controller, lalu ke service, dan akhirnya ke model. Setelah proses selesai, hasilnya ditampilkan lagi ke pengguna lewat output console. Dengan pembagian ini, setiap bagian program punya tanggung jawab yang lebih jelas, sehingga class model fokus pada data, service mengurus proses CRUD dan logika program, dan controller mengatur alur serta menu yang dijalankan.
 
